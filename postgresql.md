@@ -33,3 +33,13 @@ SELECT nspname || '.' || relname AS "relation",
   ORDER BY pg_total_relation_size(C.oid) DESC
   LIMIT 200;
   ```
+  
+### human format of size
+Basic usage example for pg_size_pretty()
+```
+postgres=# SELECT pg_size_pretty(16384::bigint);
+ pg_size_pretty 
+----------------
+ 16 kB
+(1 row)
+```
