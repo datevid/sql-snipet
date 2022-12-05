@@ -34,7 +34,7 @@ SELECT nspname || '.' || relname AS "relation",
   LIMIT 200;
   ```
   
-### human format of size
+### pg_size_pretty(), Human format of size
 Basic usage example for pg_size_pretty()
 ```console
 postgres=# SELECT pg_size_pretty(16384::bigint);
