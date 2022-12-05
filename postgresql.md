@@ -43,7 +43,7 @@ postgres=# SELECT pg_size_pretty(16384::bigint);
  16 kB
 (1 row)
 ```
-### find the size of all rows for a specific
+### Find the size of all rows for a specific
 ```
 select sum(pg_column_size(t) + 24) 
 from the_table t
