@@ -36,7 +36,7 @@ SELECT nspname || '.' || relname AS "relation",
   
 ### human format of size
 Basic usage example for pg_size_pretty()
-```
+```console
 postgres=# SELECT pg_size_pretty(16384::bigint);
  pg_size_pretty 
 ----------------
