@@ -44,9 +44,28 @@ postgres=# SELECT pg_size_pretty(16384::bigint);
 (1 row)
 ```
 ### Find the size of all rows for a specific
-```
+```sql
 select sum(pg_column_size(t) + 24) 
 from the_table t
 where customer_id = 42;
 ```
 You can se more [here](https://dba.stackexchange.com/q/167106)
+
+### Conceder privilegios de insert, select o update a un usuario en postgre sql
+Sintaxe básica:
+```sql
+GRANT INSERT ON TABLE nome_da_tabela TO nome_do_usuário;
+```
+Exemplo:
+```sql
+GRANT INSERT ON TABLE orders TO user1;
+```
+### Conceder privielgios a una secuencia para un usuario en específico en posgresql
+Sintaxe básica:
+```sql
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE nome_da_sequencia TO nome_do_usuário;
+```
+Exemplo:
+```sql
+GRANT USAGE, SELECT, UPDATE ON SEQUENCE orders_seq TO user1;
+```
