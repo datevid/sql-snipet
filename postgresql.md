@@ -69,3 +69,16 @@ Exemplo:
 ```sql
 GRANT USAGE, SELECT, UPDATE ON SEQUENCE orders_seq TO user1;
 ```
+
+### Lateral
+See more [here](https://medium.com/kkempin/postgresqls-lateral-join-bfd6bd0199df)
+```sql
+SELECT user_id, first_order_time, next_order_time, id FROM
+  (SELECT user_id, min(created_at) AS first_order_time FROM orders GROUP BY user_id) o1
+  LEFT JOIN LATERAL
+  (SELECT id, created_at AS next_order_time
+   FROM orders
+   WHERE user_id = o1.user_id AND created_at > o1.first_order_time
+   ORDER BY created_at ASC LIMIT 1)
+   o2 ON true;
+```
