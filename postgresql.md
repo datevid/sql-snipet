@@ -82,3 +82,16 @@ SELECT user_id, first_order_time, next_order_time, id FROM
    ORDER BY created_at ASC LIMIT 1)
    o2 ON true;
 ```
+
+Lateral con where.
+```sql
+SELECT user_id, first_order_time, next_order_time, id FROM
+  o1
+  LEFT OUTER JOIN LATERAL
+  (SELECT id, created_at AS next_order_time
+   FROM orders
+   WHERE user_id = o1.user_id AND created_at > o1.first_order_time
+   ORDER BY created_at ASC LIMIT 1)
+   as o2 ON true
+   where ...
+```
