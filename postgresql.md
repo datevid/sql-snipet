@@ -95,3 +95,11 @@ SELECT user_id, first_order_time, next_order_time, id FROM
    as o2 ON true
    where ...
 ```
+
+### count(*)>1
+```sql
+select nu_persona_id, count(1) 
+from persona 
+group by 1 
+having count(1)>1
+```
