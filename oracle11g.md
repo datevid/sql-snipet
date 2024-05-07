@@ -13,7 +13,7 @@ Paginación:
 ```sql
 SELECT *
 FROM (
-  SELECT t.*, ROW_NUMBER() OVER (ORDER BY columna_orden) AS rn
+  SELECT t.*, ROW_NUMBER() OVER (ORDER BY t.columna) AS rn
   FROM tu_tabla t
 )
 WHERE rn BETWEEN :start_index AND :end_index
