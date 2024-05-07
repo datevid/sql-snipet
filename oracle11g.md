@@ -18,3 +18,12 @@ FROM (
 )
 WHERE rn BETWEEN :start_index AND :end_index
 ```
+Ejemplo de paginación para la tabla estudiante:
+```sql
+select * from (
+    SELECT ROW_NUMBER() OVER (ORDER BY t.FE_D_CREACION DESC) AS RNUM,
+           t.*
+    FROM estudiante t
+    order by t.FE_D_CREACION desc
+) where rnum between :PI_START_ROW AND :PI_END_ROW;
+```
