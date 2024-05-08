@@ -58,4 +58,25 @@ SELECT ROW_NUMBER() OVER (ORDER BY E.fecha_creacion DESC) AS secuencia,
 FROM Estudiante E
 OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
 ```
+ejemplo del offet:
+pagina 1| 10 por página
+```
+offset (1-1)*10 rows fetch next 10 rows only;
+```
+pagina 2| 10 por página
+```
+offset (2-1)*10 rows fetch next 10 rows only;
+```
+pagina 3| 10 por página
+```
+offset (3-1)*10 rows fetch next 10 rows only;
+```
+Ecuación:
+pagina page_i| n_x_page por página
+```
+offset (pagina-i)*n_x_page rows fetch next 10 rows only;
+```
+
+
+
 
