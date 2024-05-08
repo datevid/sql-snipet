@@ -38,6 +38,13 @@ SELECT * FROM (
 ) AS subconsulta
 WHERE secuencia BETWEEN :start_index AND :end_index;
 ```
+Donde:
+```
+start_index = (pagina_i - 1) * perPage + 1
+
+end_index = pagina_i * perPage
+```
+
 Ejemplo de paginación para la tabla estudiante:
 
 ```sql
