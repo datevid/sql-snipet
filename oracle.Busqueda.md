@@ -1,7 +1,7 @@
 # Snipets para búsqueda
 
 ### 1. Mostrar secuencia a cada registro:
-```
+```sql
 SELECT ROW_NUMBER() OVER (ORDER BY E.fecha_creacion DESC) AS secuencia,
        E.*
 FROM Estudiante E;
