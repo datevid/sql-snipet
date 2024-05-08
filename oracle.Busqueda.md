@@ -68,6 +68,7 @@ pagina pagina_i| perPage por página
 where secuencia between (pagina_i - 1) * perPage + 1 and pagina_i * perPage;
 ```
 start_index = (pagina_i - 1) * perPage + 1
+
 end_index = pagina_i * perPage
 
 ### 6. Paginación sin usar subconsultas:
